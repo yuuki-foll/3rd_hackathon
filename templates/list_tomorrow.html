@@ -1,0 +1,17 @@
+{% extends 'list_base.html' %}
+{% load static %}
+
+{% block customcss %}
+    <link href="{% static 'list.css' %}" rel="stylesheet">
+{% endblock customcss %}
+{% block customjs %}
+    <script src="{% static 'clock.js' %}"></script>
+{% endblock customjs %}
+{% block content %}
+    
+    <div class="container">     
+        <a href="{% url 'today' %}" class="btn btn-secondary " tabindex="-1" role="button" aria-disabled="true">今日のタスク</a>
+        <a href="{% url 'tomorrow' %}" class="btn btn-primary " tabindex="-1" role="button" aria-disabled="true">明日のタスク</a>
+        <a href="{% url 'future' %}" class="btn btn-secondary " tabindex="-1" role="button" aria-disabled="true">それ以降</a>  
+    </div> 
+{% endblock content %}

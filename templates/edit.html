@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+
+
+{% block content %}
+<body>
+<div class="container">
+    <main>
+        <div class="py-5 text-center">
+            <h2>Todocreate</h2>
+            <p class="lead">やることを入力してください。</p>
+        </div>
+        <button type="button" class="btn-close" aria-label="Close"  style="position: relative; left: 350px; top: 0px;" onclick="location.href='{% url 'today' %}'"></button>
+        <form action="" method="POST">{% csrf_token %}
+            <div class="col-md-6">
+                <h3><label for="formGroupExampleInput" class="form-label">title</label></h3>
+            </div>
+            <div class="col-md-6">
+                {{ form.title }}
+            </div>
+            
+            <div class="col-md-6">
+                <h3><label for="formGroupExampleInput2" class="form-label">text</label></h3>
+            </div>
+
+            <div class="col-md-6">
+                {{ form.text }}
+            </div>
+            <div class="col-md-6">
+                <h3><label for="formGroupExampleInput2" class="form-label">date</label></h3>
+            </div>
+            <div class="col-md-6">
+                {{ form.created_date }}
+            </div>
+            <hr class="my-5" style="width:300px;">
+            <button class="w-30 btn btn-outline-secondary btn-lg" type="submit">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-arrow-clockwise" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 1 8 2v1z"/>
+                    <path d="M8 4.466V.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384L8.41 4.658A.25.25 0 0 1 8 4.466z"/>
+                </svg>
+                更新            
+            </button>
+            <!-- <a href="{% url 'list' %}" class="btn btn-primary btn-lg" role="button" data-bs-toggle="button">listに戻る</a> -->
+            <!-- <input type="submit" value="create"> -->
+        </form>
+    </main>
+</div>
+</body>    
+{% endblock content %}
